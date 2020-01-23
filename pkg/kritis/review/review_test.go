@@ -189,12 +189,12 @@ func TestReviewGAP(t *testing.T) {
 			shouldErr:    false,
 		},
 		{
-			name:         "skip image with multiple policies",
+			name:         "deny image with multiple policies",
 			image:        "allowed_image_name",
 			policies:     twoGAPs,
 			attestations: []metadata.PGPAttestation{},
 			isAdmitted:   false,
-			shouldErr:    false,
+			shouldErr:    true,
 		},
 		{
 			name:         "image without policies",
