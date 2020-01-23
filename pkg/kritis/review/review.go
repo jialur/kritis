@@ -109,7 +109,7 @@ func (r Reviewer) ReviewGAP(images []string, gaps []v1beta1.GenericAttestationPo
 	}
 
 	if len(gaps) > 1 {
-		return fmt.Errorf("There are more than 1 Generic Attestation Policies defined.");
+		return fmt.Errorf("There are more than 1 Generic Attestation Policies defined.")
 	}
 
 	// Check if all GAPs are well-formed.
