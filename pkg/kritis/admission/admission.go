@@ -263,7 +263,7 @@ func reviewImages(images []string, ns string, pod *v1.Pod, ar *v1beta1.Admission
 		createDeniedResponse(ar, errMsg)
 		return
 	}
-	if len(gaps) == 0 {
+	if len(gaps) != 1 {
 		glog.Infof("No Generic Attestation Policies found in namespace %s", ns)
 	} else {
 		glog.Infof("Found %d Generic Attestation Policies", len(gaps))

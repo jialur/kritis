@@ -103,8 +103,8 @@ func (r Reviewer) checkGAPs(gaps []v1beta1.GenericAttestationPolicy) error {
 // ReviewGAP reviews images against generic attestation policies
 func (r Reviewer) ReviewGAP(images []string, gaps []v1beta1.GenericAttestationPolicy, pod *v1.Pod, c metadata.ReadOnlyClient) error {
 	// If no policy found, images should be admitted.
-	if len(gaps) == 0 {
-		glog.Info("No Generic Attestation Policies found")
+	if len(gaps) != 1 {
+		glog.Info("No or too many Generic Attestation Policies found.")
 		return nil
 	}
 

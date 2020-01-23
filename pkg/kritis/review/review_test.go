@@ -189,7 +189,7 @@ func TestReviewGAP(t *testing.T) {
 			shouldErr:    false,
 		},
 		{
-			name:         "image allowlisted in 1 policy",
+			name:         "skip image with multiple policies",
 			image:        "allowed_image_name",
 			policies:     twoGAPs,
 			attestations: []metadata.PGPAttestation{},
@@ -211,22 +211,6 @@ func TestReviewGAP(t *testing.T) {
 			attestations: invalidAtts,
 			isAdmitted:   false,
 			shouldErr:    true,
-		},
-		{
-			name:         "image complies with one policy out of two",
-			image:        img,
-			policies:     twoGAPs,
-			attestations: oneValidAtt,
-			isAdmitted:   true,
-			shouldErr:    false,
-		},
-		{
-			name:         "image in global allowlist",
-			image:        "us.gcr.io/grafeas/grafeas-server:0.1.0",
-			policies:     twoGAPs,
-			attestations: []metadata.PGPAttestation{},
-			isAdmitted:   false,
-			shouldErr:    false,
 		},
 		{
 			name:         "image attested by one attestor out of two",
