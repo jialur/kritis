@@ -104,12 +104,12 @@ func (r Reviewer) checkGAPs(gaps []v1beta1.GenericAttestationPolicy) error {
 func (r Reviewer) ReviewGAP(images []string, gaps []v1beta1.GenericAttestationPolicy, pod *v1.Pod, c metadata.ReadOnlyClient) error {
 	// If no policy found, images should be admitted.
 	if len(gaps) == 0 {
-		glog.Info("No Generic Attestation Policies found.")
+		glog.Info("No Generic Attestation Policies found")
 		return nil
 	}
 
 	if len(gaps) > 1 {
-		return fmt.Errorf("There are more than 1 Generic Attestation Policies defined. Please merge them to one.");
+		return fmt.Errorf("There are more than 1 Generic Attestation Policies defined.");
 	}
 
 	// Check if all GAPs are well-formed.
